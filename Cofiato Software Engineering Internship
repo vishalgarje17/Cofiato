@@ -1,0 +1,28 @@
+//Count and Say
+
+class Solution {
+public:
+    string countAndSay(int n)
+{
+		if(n==1)
+			return "1";//initial if input 1 then return 1
+		string s=countAndSay(n-1); // check for string
+		string res="";
+		char ch=s[0];int count =1;
+		for(int i=1;i<s.size();i++)
+		{
+			if(ch==s[i])
+				count ++;
+			else{
+				res+=to_string(count );
+				res+=ch;
+				ch=s[i];
+				count=1;
+			}
+		}
+		res+=to_string(count); // passing count as argument
+		res+=ch;
+		return res; // return output
+    
+}
+};
